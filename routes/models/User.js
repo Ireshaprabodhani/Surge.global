@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const StudentSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
     // create properties
     {
-        id          : {type:Number,required:true, unique:true},
+        //id          : {type:Number,required:true, unique:true},
         firstName   : {type:String, required:true},
         lastName    : {type:String},
         email       : {type:String, required:true},
@@ -17,4 +17,4 @@ const StudentSchema = new mongoose.Schema(
     {timestamps: true}
 );
 
-module.exports = mongoose.model("Student",StudentSchema);
+module.exports = mongoose.model("User",UserSchema);
