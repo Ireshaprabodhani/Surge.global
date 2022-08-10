@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
         // use jwt 
         const accessToken = jwt.sign({
             id:user._id,
-            accountType: user.accountType,
+            status: user.status,
         },
         process.env.JWT_SEC,
         {
