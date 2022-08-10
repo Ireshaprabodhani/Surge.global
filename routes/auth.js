@@ -47,10 +47,11 @@ router.post("/login", async (req, res) => {
         const hashedPassword = CryptoJS.AES.decrypt(user.password,
             process.env.PASS_SEC
         );
-        // use jwt 
+        //use jwt 
         const accessToken = jwt.sign({
-            id:user._id,
-            status: user.status,
+            id
+            :user._id,
+            accountType: user.accountType,
         },
         process.env.JWT_SEC,
         {
