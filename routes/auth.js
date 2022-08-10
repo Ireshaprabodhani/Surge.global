@@ -7,7 +7,7 @@ const CryptoJS = require("crypto-js");
 
 router.post("/register" , async (req,res) =>{
     const newUser = new User({
-        id: req.body.id,
+        //id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -31,27 +31,5 @@ router.post("/register" , async (req,res) =>{
 
 //Login
 
-router.post("/login", async(req,res) =>{
-    try{
-       const user = await User.findOne({email: req.body.email});
-       !user && res.status(401).json("wrong credentials!")
-
-
-       const hashedPassword = CryptoJS.AES.decrypt(
-
-        user.password,
-        process.env.PASS_SEC
-       );
-       const pword = hashedPassword.toString(CryptoJS.enc.Utf8);
-
-       password !== req.body.password &&
-          res.status(401).json("wrong credentials!");
-
-          res.status(200).json(user);
-    }catch(err){
-        res.status(500).json(err)
-    }
-
-});
 
 module.exports = router;
